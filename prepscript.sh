@@ -34,10 +34,12 @@ pacstrap /mnt       \
     base            \
     base-devel      \
     grub-efi-x86_64 \
-    vim             \
-    tmux            \
+    efibootmgr      \
     wpa_supplicant  \
-    efibootmgr
+    dialog          \
+    git             \
+    vim             \
+    tmux
 
 genfstab /mnt > /mnt/etc/fstab
 
