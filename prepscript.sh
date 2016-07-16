@@ -44,6 +44,6 @@ pacstrap /mnt       \
 genfstab /mnt > /mnt/etc/fstab
 
 arch-chroot /mnt /bin/bash -c 'echo "en_US.UTF-8 UTF_8" >> /etc/locale.gen && locale-gen'
-arch-chroot /mnt /bin/bash -c "grub-install --recheck --efi-directory=/boot && grub-mkconfig -o /boot/grub/grub.cfg"
+arch-chroot /mnt /bin/bash -c "grub-install --efi-directory=/boot && grub-mkconfig -o /boot/grub/grub.cfg"
 
 # reboot
