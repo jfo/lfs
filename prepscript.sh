@@ -15,13 +15,15 @@ parted /dev/sda set 1 esp on
 parted /dev/sda set 1 boot on
 
 parted /dev/sda mkpart ext4 411648s 21383167s
+parted /dev/sda mkpart ext4 21383168s 42354687s
 
-mkfs.fat -F -F32 /dev/sda1
-mkfs.ext4 -F  /dev/sda2
+mkfs.fat -F32 /dev/sda1 -F
+mkfs.ext4 /dev/sda2 -F
+mkfs.ext4 /dev/sda3 -F
 
-mount /dev/sda2 /mnt
-mkdir -p /mnt/boot/efi
-mount /dev/sda1 /mnt/boot/efi
+mount /dev/sda3 /mnt
+mkdir -p /mnt/boot
+mount /dev/sda1 /mnt/boot
 
 pacstrap /mnt       \
     base            \
@@ -34,6 +36,6 @@ pacstrap /mnt       \
 
 genfstab /mnt > /mnt/etc/fstab
 
-arch-chroot /mnt /bin/bash -c "grub-install --efi-directory=/boot/efi && grub-mkconfig -o /boot/grub/grub.cfg"
+arch-chroot /mnt /bin/bash -c "grub-install --efi-directory=/boot && grub-mkconfig -o /boot/grub/grub.cfg"
 
 # reboot
