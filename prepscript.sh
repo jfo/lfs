@@ -28,6 +28,7 @@ swapon /dev/sda4
 mount /dev/sda3 /mnt
 mkdir -p /mnt/boot
 mount /dev/sda1 /mnt/boot
+rm -r /mnt/boot/*
 
 pacstrap /mnt       \
     base            \
@@ -40,7 +41,7 @@ pacstrap /mnt       \
 
 genfstab /mnt > /mnt/etc/fstab
 
-arch-chroot /mnt /bin/bash -c 'echo "en_US.UTF8 UTF_8" >> /etc/locale.gen && locale-gen'
+arch-chroot /mnt /bin/bash -c 'echo "en_US.UTF-8 UTF_8" >> /etc/locale.gen && locale-gen'
 arch-chroot /mnt /bin/bash -c "grub-install --recheck --efi-directory=/boot && grub-mkconfig -o /boot/grub/grub.cfg"
 
 # reboot
