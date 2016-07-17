@@ -31,8 +31,8 @@ popd
 
 su lfs -c "mkdir /home/lfs/lfs 						&&\
 	git clone https://github.com/urthbound/lfs /home/lfs/lfs 	&&\
-	git config --global user.name "Jeff Fowler"			&&\
-	git config --global user.email "jeffowler@gmail.com"
+	git config --global user.name 'Jeff Fowler'			&&\
+	git config --global user.email 'jeffowler@gmail.com'"
 
 rm -rf /root/lfs
 su - lfs
