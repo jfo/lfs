@@ -39,7 +39,8 @@ pacstrap /mnt       \
     dialog          \
     git             \
     vim             \
-    tmux
+    tmux	    \
+    wget
 
 genfstab /mnt > /mnt/etc/fstab
 
