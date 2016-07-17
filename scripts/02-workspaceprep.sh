@@ -3,9 +3,11 @@
 git config --global user.name "Jeff Fowler"
 git config --global user.email "jeffowler@gmail.com"
 
-mount /dev/sda2 /mnt
+mount -v -t ext4 /dev/sda2 /mnt
 mkdir -v /mnt/lfs
 LFS=/mnt/lfs
+
+swapon -v /dev/sda4
 
 mkdir -v $LFS/sources
 chmod -v a+wt $LFS/sources
@@ -34,5 +36,4 @@ su lfs -c "mkdir /home/lfs/lfs 						&&\
 	git config --global user.name 'Jeff Fowler'			&&\
 	git config --global user.email 'jeffowler@gmail.com'"
 
-rm -rf /root/lfs
 su - lfs
