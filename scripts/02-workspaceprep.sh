@@ -28,4 +28,6 @@ pushd ../bashrc
 bash rc-copy.sh
 popd
 
+su lfs -c "mkdir /home/lfs/lfs && git clone http://github.com/urthbound/lfs /home/lfs/lfs"
+rm -rf /root/lfs
 su - lfs
