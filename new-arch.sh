@@ -40,7 +40,7 @@ pacstrap /mnt       \
     tmux            \
     wget            \
     alsa-utils      \
-    xorg-server xorg-init xorg-server-utils \
+    xorg-server xorg-xinit xorg-server-utils \
     nvidia          \
     xorg-twm xorg-xclock xterm              \
     ttf-dejavu      \
@@ -50,12 +50,34 @@ pacstrap /mnt       \
 genfstab /mnt > /mnt/etc/fstab
 
 
-arch-chroot /mnt /bin/bash -c "echo LANG=en_US.UTF-8 UTF-8 > /etc/locale.conf && export LANG=en_US.UTF-8"
-arch-chroot /mnt /bin/bash -c "grub-install --efi-directory=/boot && grub-mkconfig -o /boot/grub/grub.cfg"
-arch-chroot /mnt /bin/bash -c "ln -s /usr/shar/zoneinfo/America/New_York /etc/localtime && hwclock --systohc --utc"
+arch-chroot /mnt /bin/bash -c <<EOF
 
-arch-chroot /mnt /bin/bash -c "systemctl enable net-auto-wireless.service"
-arch-chroot /mnt /bin/bash -c "systemctl enable gdm.service"
-arch-chroot /mnt /bin/bash -c "useradd -m -g users -G wheel,storage,power -s /bin/bash jfo && passwd jfo"
+git config --global user.name "Jeff Fowler" 
+git config --global user.email "jeffowler@gmail.com" 
 
-reboot
+echo LANG=en_US.UTF-8 UTF-8 > /etc/locale.conf && export LANG=en_US.UTF-8
+grub-install --efi-directory=/boot && grub-mkconfig -o /boot/grub/grub.cfg
+ln -s /usr/shar/zoneinfo/America/New_York /etc/localtime && hwclock --systohc --utc
+
+systemctl enable net-auto-wireless.service
+systemctl enable gdm.service
+useradd -m -g users -G wheel,storage,power -s /bin/bash jfo && passwd jfo
+
+EOF
+
+echo <<HEREDOC
+
+ ___  ___ _ __(_)_ __ | |_(_)_ __ ( )   __ _| | | | |_| |__   ___ 
+/ __|/ __| '__| | '_ \| __| | '_ \|/   / _` | | | | __| '_ \ / _ \
+\__ \ (__| |  | | |_) | |_| | | | |   | (_| | | | | |_| | | |  __/
+|___/\___|_|  |_| .__/ \__|_|_| |_|    \__,_|_|_|  \__|_| |_|\___|
+                |_|                                               
+ _   _                           
+| |_| |__   __ _ _ __   __ _ ___ 
+| __| '_ \ / _` | '_ \ / _` / __|
+| |_| | | | (_| | | | | (_| \__ \
+ \__|_| |_|\__,_|_| |_|\__, |___/
+                       |___/     
+new-arch.sh is done. you can probably reboot now."
+
+HEREDOC
