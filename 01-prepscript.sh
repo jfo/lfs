@@ -5,9 +5,6 @@
 # system will be built. Must be connected to the interwebz for the
 # pacstrapping.
 
-nc -z 8.8.8.8 53  >/dev/null 2>&1 && online=$?
-if [ ! $online -eq 0 ]; then wifi-menu fi
-
 umount /mnt/boot
 umount /mnt
 swapoff -a
