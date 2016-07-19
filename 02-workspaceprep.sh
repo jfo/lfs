@@ -11,9 +11,9 @@ swapon -v /dev/sda4
 
 mkdir -v $LFS/sources
 chmod -v a+wt $LFS/sources
-wget --input-file=../sources/wget-list --continue --directory-prefix=$LFS/sources
+wget --input-file=wget-list --continue --directory-prefix=$LFS/sources
 
-cp ../sources/checksums $LFS/sources/
+cp checksums $LFS/sources/
 pushd $LFS/sources
 md5sum -c checksums
 popd
