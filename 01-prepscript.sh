@@ -1,8 +1,12 @@
 #!/bin/bash
 
-# DO NOT RUN THIS unless you want /dev/sda to be completely destroyed.
+# DO NOT RUN THIS unless you want /dev/sda to be completely destroyed.  this
+# creates the host environment and includes an empty partition where the lfs
+# system will be built. Must be connected to the interwebz for the
+# pacstrapping.
 
-wifi-menu
+nc -z 8.8.8.8 53  >/dev/null 2>&1 && online=$?
+if [ ! $online -eq 0 ]; then wifi-menu fi
 
 umount /mnt/boot
 umount /mnt
@@ -39,12 +43,9 @@ pacstrap /mnt       \
     dialog          \
     git             \
     vim             \
-    tmux	    \
+    tmux            \
     wget
 
 genfstab /mnt > /mnt/etc/fstab
 
-arch-chroot /mnt /bin/bash -c 'echo "en_US.UTF-8 UTF_8" >> /etc/locale.gen && locale-gen'
 arch-chroot /mnt /bin/bash -c "grub-install --efi-directory=/boot && grub-mkconfig -o /boot/grub/grub.cfg"
-
-# reboot
