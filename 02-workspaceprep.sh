@@ -27,13 +27,10 @@ passwd lfs
 chown -v lfs $LFS/tools
 chown -v lfs $LFS/sources
 
-pushd ../bashrc
+pushd ./bashrc
 bash rc-copy.sh
 popd
 
-su lfs -c "mkdir /home/lfs/lfs 						&&\
-	git clone https://github.com/urthbound/lfs /home/lfs/lfs 	&&\
-	git config --global user.name 'Jeff Fowler'			&&\
-	git config --global user.email 'jeffowler@gmail.com'"
+su lfs -c "git clone https://github.com/urthbound/lfs /home/lfs/lfs && git config --global user.name 'Jeff Fowler' && git config --global user.email 'jeffowler@gmail.com'"
 
 su - lfs
