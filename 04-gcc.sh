@@ -41,6 +41,7 @@ cd build
         --disable-threads                               \
         --disable-libatomic                             \
         --disable-libgomp                               \
+        --disable-libmpx                                \
         --disable-libquadmath                           \
         --disable-libssp                                \
         --disable-libvtv                                \
