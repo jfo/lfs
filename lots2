@@ -1,0 +1,451 @@
+    1  ls
+    2  ls
+    3  ls
+    4  git clone https://github.com/urthbound
+    5  git clone https://github.com/urthbound/lfs
+    6  ls
+    7  cd lfs/
+    8  ls
+    9  cd 02-workspaceprep.sh 
+   10  cat 02-workspaceprep.sh 
+   11  ls
+   12  dmesg
+   13  ls
+   14  tmux
+   15  vim .
+   16  vim .
+   17  ls
+   18  cd
+   19  ls
+   20  vim dummy.c
+   21  $LFS_TGT-gcc
+   22  $LFS_TGT-gcc dummy.c 
+   23  ls
+   24  readelf -1 a.out  | grep ': /tools'
+   25  readelf -l a.out  | grep ': /tools'
+   26  cd
+   27  ls
+   28  cd lfs/
+   29  ls
+   30  git add -p
+   31  git commit -m 'holy shat it worked'
+   32  git config --global user.email "jeffowler@gmail.com"
+   33  git config --global user.name "Jeff Fowler"
+   34  git commit -m 'holy shat it worked'
+   35  git push
+   36  ls
+   37  cd lfs/
+   38  ls
+   39  tmux
+   40  cd /mnt/
+   41  ls
+   42  cd l
+   43  cd lfs/
+   44  ls
+   45  cd sources/
+   46  ls
+   47  ls /tools -l
+   48  tar -xf binutils-2.26.1.tar.bz2 
+   49  cd binutils-2.26.1
+   50  ls
+   51  mkdir build
+   52  cd b
+   53  cd build/
+   54  ls
+   55  cp ~/lfs/03-bin-utils.sh 
+   56  cp ~/lfs/03-bin-utils.sh .
+   57  ls
+   58  bash 03-bin-utils.sh 
+   59  cd ..
+   60  ls
+   61  cd ..
+   62  ls
+   63  ls
+   64  tar -xf gcc-6.1.0.tar.bz2 
+   65  cd gcc-6.1.0
+   66  ls
+   67  ls ../gcc-6.1.0*
+   68  ls ../ | grep gcc
+   69  :set list
+   70  ls
+   71  cp ~/lfs/04-gcc.sh .
+   72  ls
+   73  bash 04-gcc.sh 
+   74  cd ..
+   75  ls
+   76  tar -xf linux-4.6.3.tar.xz 
+   77  cd linux-4.6.3
+   78  ls
+   79  make mrproper
+   80  make INSTALL_HDR_PATH=dest headers_install
+   81  cp -rv dest/include/* /tools/include
+   82  cd ..
+   83  ls
+   84  tar -xf glibc-2.23.tar.xz 
+   85  cd glibc-2.23
+   86  ls
+   87  patch -Np1 ../glibc-2.23-upstream_fixes-1.patch 
+   88  patch -Np1 ../glibc-2.23-upstream_fixes-1.patch  -i
+   89  patch -Np1  -i ../glibc-2.23-upstream_fixes-1.patch 
+   90  mkdir -v build
+   91  cd build/
+   92  ls
+   93  cp ~/lfs/05-glibc.sh ,
+   94  ls
+   95  mv , glibc.sh
+   96  ls
+   97  vim  glibc.sh 
+   98  bash glibc.sh 
+   99  make -j1
+  100  history
+  101  ls
+  102  make install
+  103  ls
+  104  ls
+  105  ls
+  106  cd lfs/
+  107  ls
+  108  git pull
+  109  wifi-menu
+  110  ls
+  111  ls
+  112  ls
+  113  gcc dummy.c 
+  114  ls
+  115  rm a.out 
+  116  ls
+  117  cd lfs/
+  118  ls
+  119  ls
+  120  ls
+  121  vim 06-gcc-libstdc++.sh
+  122  cd /mnt/
+  123  ls
+  124  cd lf
+  125  ls
+  126  cd ..
+  127  ls
+  128  mount /dev/sda2 /mnt
+  129  sudo mount /dev/sda2 /mnt
+  130  ls
+  131  sudo mount /dev/sda2 /mnt
+  132  cd /mnt/
+  133  ls
+  134  cd lfs/
+  135  ls
+  136  cd sources/
+  137  ls
+  138  cd gcc-6.1.0/build/
+  139  ls
+  140  cp ~/lfs/06-gcc-libstdc++.sh .
+  141  ls
+  142  bash 06-gcc-libstdc++.sh 
+  143  make
+  144  make install
+  145  cd ..
+  146  ls
+  147  cd ..
+  148  ls
+  149  cd binutils-2.26.1
+  150  ls
+  151  rm -r build/
+  152  rm -rf build/
+  153  mkdir build
+  154  cd build/
+  155  ls
+  156  ls
+  157  cp ~/lfs/07-bin-utils2.sh .
+  158  ls
+  159  vim 07-bin-utils2.sh 
+  160  bash 07-bin-utils2.sh 
+  161  echo $CC
+  162  fg
+  163  bash 07-bin-utils2.sh 
+  164  echo $CC
+  165  fg
+  166  cp ~/lfs/07-bin-utils2.sh .
+  167  vim 07-bin-utils2.sh 
+  168  bash 07-bin-utils2.sh 
+  169  vim .
+  170  bash 07-bin-utils2.sh 
+  171  vim Makefile 
+  172  vim 
+  173  vim Makefile 
+  174  echo $CC
+  175  CC=$LFS_TGT-gcc
+  176  echo $CC
+  177  AR=$LFS_TGT-ar
+  178  RANLIB=$LFS_TGT-ranlib
+  179  vim .
+  180  bash 07-bin-utils2.sh 
+  181  vim Makefile 
+  182  make
+  183  make install
+  184  make -C ld clean
+  185  make -C ld LIB_PATH=/usr/lib:/lib
+  186  cp -v ld/ld-new /tools/bin
+  187  ls
+  188  pwd
+  189  cd ..
+  190  ls
+  191  cd ..
+  192  ls
+  193  cd gcc-6.1.0
+  194  ls
+  195  cp ~/lfs/08-gcc2.sh .
+  196  ls
+  197  bash 08-gcc2.sh 
+  198  rm -r build/
+  199  bash 08-gcc2.sh 
+  200  cp ~/lfs/08-gcc2.sh .
+  201  rm -r build/
+  202  ls
+  203  rm -r mpfr
+  204  rm -r gmp
+  205  rm -r mpc
+  206  sudo rm -r mpc
+  207  bash 08-gcc2.sh 
+  208  make
+  209  ls
+  210  cd build/
+  211  ls
+  212  make
+  213  make install
+  214  ln -sv gcc /tools/bin/cc
+  215  ls
+  216  cd ..
+  217  ls
+  218  cd ..
+  219  ls
+  220  tar -xf tcl-core8.6.5-src.tar.gz 
+  221  ls
+  222  cd tcl8.6.5/
+  223  ls
+  224  cd unix/
+  225  ls
+  226  .configure --prefix=/tools
+  227  ./configure --prefix=/tools
+  228  make
+  229  make install
+  230  chmod -v u+w /tools/lib/libtcl8.6.so 
+  231  make install-private-headers
+  232  ln -sv tclsh8.6 /tools/bin/tclsh
+  233  cd ..
+  234  ls
+  235  cd ..
+  236  ls
+  237  tar -xf expect5.45.tar.gz 
+  238  cd expect5.45
+  239  ls
+  240  cp -v configure{,.orig}
+  241  sed 's:/usr/local/bin:/bin:' configure.orig > configure
+  242  ls
+  243  ./configure --prefix=/tools --with-tcl=/tools/lib --with-tclinclude=/tools/include
+  244  make
+  245  make SCRIPTS="" install
+  246  cd ..
+  247  ls
+  248  tar -xf dejagnu-1.6.tar.gz 
+  249  cd dejagnu-1.6
+  250  ls
+  251  ./configure --prefix=/tools
+  252  make install
+  253  make check
+  254  cd ..
+  255  ls
+  256  tar -xf check-0.10.0.tar.gz 
+  257  cd check-0.10.0
+  258  ls
+  259  PKG_CONFIG= ./configure --prefix=/tools
+  260  make -j4
+  261  make check
+  262  make install
+  263  cd ..
+  264  ls
+  265  tar -xf ncurses-6.0.tar.gz 
+  266  cd ncurses-6.0
+  267  ls
+  268  ls
+  269  sed -i s/mawk// configure
+  270  sed -i s/gawk// configure
+  271  vim configure
+  272  ls
+  273  ./configure --prefix=/tools --with-shared --without-debug --without-ada --enable-widec --enable-overwrite
+  274  make -j4
+  275  make install
+  276  cd ..
+  277  l
+  278  sls
+  279  ls
+  280  tar -xf bash-4.3.30.tar.gz 
+  281  cd bash-4.3.30
+  282  ls
+  283  patch -p1 < ../bash-4.3.30-upstream_fixes-3.patch 
+  284  ./configure --prefix=/tools --without-bash-malloc
+  285  make -j4
+  286  make install
+  287  ln -sv bash /tools/bin/sh
+  288  cd ..
+  289  ls
+  290  tar -xf bzip2-1.0.6.tar.gz 
+  291  cd bzip2-1.0.6
+  292  patch -p1 < ../bzip2-1.0.6-install_docs-1.patch 
+  293  make
+  294  make PREFIX=/tools install
+  295  cd ..
+  296  ls
+  297  tar -xf coreutils-8.25.tar.xz 
+  298  cd coreutils-8.25
+  299  ls
+  300  patch -p1 < ../coreutils-8.25-i18n-2.patch 
+  301  ./configure --prefix=/tools --enable-install-program=hostname
+  302  make -j4
+  303  make RUN_EXPENSIVE_TESTS=yes check
+  304  ls
+  305  make install
+  306  cd ..
+  307  ls
+  308  tar -xf diffutils-3.3.tar.xz 
+  309  cd diffutils-3.3
+  310  ls
+  311  ./configure --prefix=/tools
+  312  make -j4
+  313  make install
+  314  cd ..
+  315  ls
+  316  ls
+  317  tar -xf file-5.28.tar.gz 
+  318  cd file-5.28
+  319  ls
+  320  ./configure --prefix=/tools
+  321  make -j4
+  322  make install
+  323  cd ..
+  324  ls
+  325  tar -xf findutils-4.6.0.tar.gz 
+  326  cd findutils-4.6.0
+  327  ls
+  328  ./configure --prefix=/tools
+  329  make -j4
+  330  make install
+  331  cd ..
+  332  ls
+  333  tar -xf gawk-4.1.3.tar.xz 
+  334  cd gawk-4.1.3
+  335  ./configure --prefix=/tools
+  336  make -j4
+  337  make install
+  338  history > ~/lfs/lots
+  339  ls
+  340   cd ..
+  341  ls
+  342  tar -xf gettext-0.19.8.1.tar.xz 
+  343  cd gettext-0.19.8.1
+  344  ls
+  345  cd gettext-tools/
+  346  EMACS="no" ./configure --prefix=/tools --disable-shared
+  347  make -C gnulib-lib
+  348  make -C intl pluralx.c
+  349  make -C src msgfmt
+  350  make -j4 -C src msgmerge
+  351  make -C src xgettext
+  352  cp -v src/{msgfmt,msgmerge,xgettext} /tools/bin
+  353  cd ..
+  354  ls
+  355  cd ..
+  356  ls
+  357  tar -xf grep-2.25.tar.xz 
+  358  cd grep-2.25
+  359  ls
+  360  ./configure --prefix=/tools
+  361  make -j4
+  362  make install
+  363  cd ..
+  364  ls
+  365  tar -xf gzip-1.8.tar.xz 
+  366  cd gzip-1.8
+  367  ls
+  368  ./configure --prefix=/tools
+  369  make -j4
+  370  make install
+  371  cd ..
+  372  ls
+  373  tar -xf m4-1.4.17.tar.xz 
+  374  cd m4-1.4.17
+  375  ls
+  376  ./configure --prefix=/tools
+  377  make -j4
+  378  make install
+  379  cd ..
+  380  ls
+  381  tar -xf make-4.2.1.tar.bz2 
+  382  cd make-4.2.1
+  383  ./configure --prefix=/tools --without-guile
+  384  make -j4
+  385  make install
+  386  cd ..
+  387  ls
+  388  tar -xf patch-2.7.5.tar.xz 
+  389  cd patch-2.7.5
+  390  .configure --prefix=/tools
+  391  ./configure --prefix=/tools
+  392  make -j4
+  393  make install
+  394  cd ..
+  395  ls
+  396  tar -xf perl-5.24.0.tar.bz2 
+  397  cd perl-5.24.0
+  398  sh Configure -des -Dprefix=/tools -Dlibs=-lm
+  399  make -j4
+  400  cp -v perl cpan/podlators/scripts/pod2man /tools/bin
+  401  mkdir -pv /tools/lib/perl5/5.24.0
+  402  cp -Rv lib/* /tools/lib/perl5/5.24.0
+  403  cd ..
+  404  ls
+  405  tar -xf sed-4.2.2.tar.bz2 
+  406  cd sed-4.2.2
+  407  ls
+  408  ./configure --prefix=/tools
+  409  make -j4
+  410  make install
+  411  ls
+  412  cd ..
+  413  l
+  414  ls
+  415  tar -xf tar-1.29.tar.xz 
+  416  cd tar-1.29
+  417  ls
+  418  ./configure --prefix=/tools
+  419  make -j4
+  420  make install
+  421  cd ..
+  422  ls
+  423  tar -xf texinfo-6.1.tar.xz 
+  424  cd texinfo-6.1
+  425  ls
+  426  ./configure --prefix=/tools
+  427  make -j4
+  428  make install
+  429  cd ..
+  430  ls
+  431  tar -xf util-linux-2.28.tar.xz 
+  432  cd util-linux-2.28
+  433  ls
+  434  ./configure --prefix=/tools --without-python --disable-makeinstall-chown --without-systemdsystemunitdir PKG_CONFIG=""
+  435  make -j4
+  436  make install
+  437  cd ..
+  438  ls
+  439  tar -xf xz-5.2.2.tar.xz 
+  440  cd xz-5.2.2
+  441  ls
+  442  ./configure --prefix=/tools
+  443  make -j4
+  444  make install
+  445  disk
+  446  du
+  447  du /
+  448  ls
+  449  history
+  450  chown -R root:root $LFS/tools
+  451  history > ~/lfs/lots2
